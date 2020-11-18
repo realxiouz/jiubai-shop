@@ -4,12 +4,6 @@ import {TAB_PAGES} from '@/common/js/const'
 
 Vue.prototype.$go = (url, type = 'navigate', opt = {}) => {
   url = `${url}`
-  if (url.startsWith('http')) {
-    url = `/pages/h5/index?src=${encodeURIComponent(url)}`
-  }
-  if (TAB_PAGES.findIndex(i => i.startsWith(url))>-1) {
-    type = 'switch'
-  }
   switch (type) {
     case 'navigate':
       uni.navigateTo({
@@ -32,17 +26,9 @@ Vue.prototype.$go = (url, type = 'navigate', opt = {}) => {
       })
       break
     case 'back':
-      let n = getCurrentPages().length
-      if (n == 1) {
-        uni.switchTab({
-          url: '/pages/home/index'
-        })
-      } else {
-        uni.navigateBack({
-          delta: url,
-        })
-      }
-      
+      uni.navigateBack({
+        delta: url,
+      })
       break
     // case 'single':
     //   let urls = getCurrentPages().map((i) => i.route)

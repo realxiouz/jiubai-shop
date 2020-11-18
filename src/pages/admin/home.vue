@@ -75,25 +75,25 @@
         <img class="right" src="/static/admin/right.png" />
       </div>
       <div class="home-line flex align-center">
-        <img src="/static//admin/zshymx.png" class="ic1" alt="">
+        <img src="/static/admin/zshymx.png" class="ic1" alt="">
         <div>直属会员明细</div>
         <div class="left"></div>
         <img class="right" src="/static/admin/right.png" />
       </div>
-      <div class="home-line flex align-center">
-        <img src="/static//admin/wddp.png" class="ic1" alt="">
+      <div class="home-line flex align-center" @click="$go('/pages/admin/shop/list')">
+        <img src="/static/admin/wddp.png" class="ic1" alt="">
         <div>我的店铺</div>
         <div class="left"></div>
         <img class="right" src="/static/admin/right.png" />
       </div>
-      <div class="home-line flex align-center">
-        <img src="/static//admin/wdsy.png" class="ic1" alt="">
+      <div class="home-line flex align-center" @click="$go('/pages/admin/money/my')">
+        <img src="/static/admin/wdsy.png" class="ic1" alt="">
         <div>我的收益</div>
         <div class="left"></div>
         <img class="right" src="/static/admin/right.png" />
       </div>
-      <div class="home-line flex align-center">
-        <img src="/static//admin/yhkgl.png" class="ic1" alt="">
+      <div class="home-line flex align-center" @click="$go('/pages/admin/bank/list')">
+        <img src="/static/admin/yhkgl.png" class="ic1" alt="">
         <div>银行卡管理</div>
         <div class="left"></div>
         <img class="right" src="/static/admin/right.png" />
