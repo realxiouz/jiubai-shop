@@ -11,12 +11,9 @@ function getUrl(url) {
 
 export const http = (url, data, method = 'post', showErrToast = true) => {
   return new Promise((resolve, reject) => {
-    let header = {
-      'X-Requested-With': 'XMLHttpRequest',
-      Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjE0LCJzY29wZSI6OCwiZXhwIjoxNjkyMDk5NTY3LCJpYXQiOjE2MDU2OTk1Njd9.OXjbtR07lzQ4E90-q0aDSFTc2FOcF8IGWQrs_KtY-es'
-    }
+    let header = {}
     let token = store.state.user.token
-    token && (header.authorization = token)
+    token && (header.Authorization = `Bearer ${token}`)
     uni
       .request({
         url: getUrl(url),

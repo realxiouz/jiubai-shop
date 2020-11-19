@@ -68,7 +68,7 @@
       </div>
       
       <div style="height:60rpx;"></div>
-      <div class="home-line flex align-center">
+      <div class="home-line flex align-center" @click="$go('/pages/admin/child/index')">
         <img src="/static/admin/fxgl.png" class="ic1" alt="">
         <div>分销商管理</div>
         <div class="left"></div>
@@ -111,11 +111,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 
 export default {
   name: 'AdminHome',
   mounted() {
-    this.$post('/agentHome', {phone: '15912510617'})
+    this.$showLoading()
+    this.$post('/agentHome', {phone: this.phone})
       .then(r => {
         let {
           avatar,
@@ -126,6 +128,9 @@ export default {
         this.addTime = addTime
         this.name = name
       })
+      .finally(_ => {
+        this.$hideLoading()
+      })
   },
   data() {
     return {
@@ -134,6 +139,9 @@ export default {
       addTime: '',
     }
   },
+  computed: {
+    ...mapState('user', ['phone'])
+  }
 }
 </script>
 
